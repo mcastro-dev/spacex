@@ -1,93 +1,212 @@
-# SpaceX
+﻿# SpaceX Android App
+
+![Light](https://lh3.googleusercontent.com/wNBgGPYGbVptEOrtUj0v7CfXTzEda1lGkt97D4IwL5EIx0hlNHNSJR2Re_NnbcJhYvIJJc-RXtX-oFaqROnvuXwW8Yiw1N7h_HcBRwEAVk05eeB3Gv0R_kQcghOnv8LceF6V1VGTBQ=w240)
+![Dark](https://lh3.googleusercontent.com/D631yRgV_0lRt3q8M3mKKKtsnVImcxFda295Q5aIL3mXR3ruAFyOVFJ3UQZWvMDVO-6R_fuuHIgGCd37dnEOxAmALZrvKLHkeN-CnAfGbNScpGbBNkp4sGQHU2BhnwGp1ubY4uZW1g=w240)
 
 
+**API**
+- REST: https://api.spacexdata.com/
+- GraphQL (non-official): https://api.spacex.land/graphql/
 
-## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+# Requirements
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- [x] Use the SpaceX API;
+- [x] Company section, populated by the API's data, displaying:
+	- [x] "{company name} was founded by {founder name} in {year}. It has now {employees} employees, {launch sites} launch sites, and is valued at USD {valuation}";
+- [x] Rocket Launches section, populated by the API's data, each item displaying:
+	- [x] Mission name;
+	- [x] Launch's date and time;
+	- [x] Rocket name and type;
+	- [x] Days since/from launch;
+	- [x] Mission patch image;
+	- [x] Successful launch or not;
+- [x] Filter rocket launches by:
+	- [x] Years
+	- [x] Launch status
+- [x] Sort rocket launches (ascending and descending)
 
-## Add your files
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# About
+- Language: Kotlin
+- Orientation: Portrait (landscape is not disabled, but not ideal)
+- Unit tests: 53 (all passing)
+- Light and Dark themes
+- Tested on Android API 30 emulator
+- Dependencies:
+	- [Mockito](https://site.mockito.org/)
+	- [Room](https://developer.android.com/jetpack/androidx/releases/room)
+	- [RxKotlin](https://github.com/ReactiveX/RxKotlin)
+	- [Retrofit](https://square.github.io/retrofit/)
+	- [Picasso](https://square.github.io/picasso/)
+	- [Hilt](https://dagger.dev/hilt/)
+	- [Apollo](https://www.apollographql.com/docs/kotlin/)
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/teclazerocursos/spacex.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+The app contains all the requested features.
+<br/>A single page, where the user can see 2 clearly defined sections: Company and Launches.
+<br/>Users may filter rocket launches by minimum launch year and launch success, as well as order results by launch date in ascending or descending order.
+<br/>Touching a rocket launch item from the list opens up a dialog where the user may use links to read its article, Wikipedia, or watch its video.
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://gitlab.com/teclazerocursos/spacex/-/settings/integrations)
+![Usage](https://lh3.googleusercontent.com/9eBcqxrbG3RKglu0eSpjaHofZPtrfU1oOHaIazvjiRbmtFL5mRxWQ3G9bkYSMtSWm297_ZcLjI4AR4bqF3yd2Wf5JzjA9CUDjmOHtHvi8pGdxNy7bkNnho1ZWoSObivPHKChe1M4WA=w600)
 
-## Collaborate with your team
+On the first half of the development I used TDD (Test-Driven Development), but as the days went by, I started worrying about not having enough time to implement everything (and felt like you guys could already have a sense of how I implement unit tests). That's when I dropped TDD and just developed the rest of the features, leaving the missing unit tests to whatever remaining time I would have.
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+# App Flow
 
-## Test and Deploy
+> I tried my best to follow the Clean Architecture and DDD (Domain-Driven Design) teachings. Below are simplified sequence diagrams of the user interactions within the app.
+> <br/> PS: Please, don't expect too much of it; I don't know UML  rules or "best practices", but I still risk myself using it from time to time because I think it's helpful.
 
-Use the built-in continuous integration in GitLab.
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- **Home page: GetInitialDataEvent**
+  - 
+Occurs as soon as the Home page is loaded, requiring no action from the user.
 
-***
+![enter image description here](https://lh3.googleusercontent.com/Arie7xhwgWITn8VNQUSuwcI77WhdSBwKQ_uNvNzuj4-nDgxAEDQfs1vDmG42ayAoGsIymnmYkp-DxGAvYYu7cTN6CgqJXL-b0_t0IAiygWgV0XwUI8V_gw8_ec4wqH0lNduz2UAiNA=w1640)
 
-# Editing this README
+![enter image description here](https://lh3.googleusercontent.com/9QvQQlPnSwkTxkK4RE8IQPd_0AUeJbUtXS7_OmwG9z0Ms1SdxEO9bqfIFXTQ82EFqjaFkt-z0DPenkmJDiQ8jsFxWME-jzuDJhnfXq91FffeAhUMbrJOCAdBX31SLFB282lcAlMfQQ=w1640)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:88021193ca5ed164912d488c4aa86676?https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- **Home page: RefreshEvent**
+  - 
+Occurs when the user pulls down the list, triggering the RecyclerView's "swipe to refresh" feature.
 
-## Name
-Choose a self-explaining name for your project.
+![enter image description here](https://lh3.googleusercontent.com/XDbZrqWlCbC5RfIMuyvYUUDzpIw8iVVh2pTRQ_aPwUDrCyCaGQVOYqo0Kpk5oDP0QMH7tXVW4T1ISt51NegIyY79VTaZ1zKpfi4uv5uAhFhu8vBvWkIa8r5VAj92B4DQe_C71UhhFw=w1640)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+- **Home page: ApplyFiltersEvent**
+  - 
+Pre-required action: open up the filter's dialog by touching the top-right action bar button.
+Occurs when the user touches the "APPLY" button.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+![enter image description here](https://lh3.googleusercontent.com/Rxm5_EPoQJ3GBI4xWW9XUITtj3Wmvr4DaoDWxmeQcRu1GhI22wweXXoQk5iV8RRBqJOOmU7w-EcZ3u1BNPGzbFH83UXJvBenH_Kd-9ncKDPi22j5yZBk2Gxt6idF0cYUN4NB-HhWLw=w1640)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+# REST vs GraphQL
+When I started developing the filter feature, I had to do some research about how to query the launches data.
+<br />Besides the official [REST API](https://api.spacexdata.com/) "/v4/launches/query" endpoint, I found a SpaceX [GraphQL API](https://api.spacex.land/graphql/), that I later found out to be a non-official API (should've read their readme file more carefully  &#128517;).
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+As I've never worked with GraphQL, I figured it would be a great opportunity to learn a little bit.
+<br />So, after implementing the filter using the REST API, I implemented it using the GraphQL API as well. But unfortunately, this non-official API does not provide a way to filter rocket launches by "launch years greater than", and therefore had to switch back to the REST implementation.
+<br />However, since it took me a lot of time and effort to implement, I decided to keep the GraphQL data source in the project.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+**If you wish to test the GraphQL implementation, you just have to replace one by the other in the dependency injection file.**
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+There's another important reason not to use the GraphQL API though...  
+The following requests return no results (even though the REST API returns 1+):
+- Requests filtering by "launch_success", for both values "true" and "false"
+- Requests filtering by "launch_year", only when its value is year "2021"
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+You may verify it by running the following queries on https://api.spacex.land/graphql/:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+    {
+      launches(
+        limit: 3,
+        offset: 0,
+        find: {
+          launch_year: "2021"
+        },
+        order: "asc",
+        sort: "launch_date_utc"
+      ) {
+        id
+        mission_name
+        launch_year
+        launch_success
+      }
+    }
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+and
 
-## License
-For open source projects, say how it is licensed.
+    {
+      launches(
+        limit: 3,
+        offset: 0,
+        find: {
+          launch_year: "2020",
+          launch_success: "true"
+        },
+        order: "asc",
+        sort: "launch_date_utc"
+      ) {
+        id
+        mission_name
+        launch_year
+        launch_success
+      }
+    }
+![launch_success: "true"](https://lh3.googleusercontent.com/mz5uLvHUsu-vZtNT-jm9vCjUgehe_P055k8QtD9NzMk_xaCUowarYiewoK6bFh2YKlxRwQJy3Miq97xZKVU1iLrz7OtMOzjgEE_zP5DtBIE8Keub8UmKGav1or2EzN8DOS2Yrtei7A=w400)
+![enter image description here](https://lh3.googleusercontent.com/PaQMLdnZZDe2DwT8lQSCcHT0kAStL0v3MVLh2aDKzOrZDFbxQJSXAPiADfOg7YDDGVne932l-c0DHZNexh7zJrdAY9w-x6hhCJ6T51ODBc10ZblzH4lAj05dEWed6s3Dq_rMIvHQGw=w400)
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+# Main Packages
 
+> I usually create packages with readability in mind.
+> <br />For example: /home/rocketlaunch/filter
+> <br />By doing that, let's say I have to implement something on the **filter** of the **rocket launches** list of the **home** page. It's right there on the package name.
+> <br />Inspired by &#128561; architecture
+
+- **com/mindera/rocketscience/home**
+  - 
+	- **/itself**
+	  <br />Everything related to (guess what &#128517;) *home itself*.
+	  This is the presentation layer of the "Home" component.
+	  "itself" is a naming convention I use when I want to highlight an intersection between one context and others. In this case, the intersection between Home/Company and Home/Rocket Launches. See image below.
+
+	- **/company**
+	  <br />Home intersection with the Company context.
+
+	- **/rocketlaunch**
+	  <br />Home intersection with the Rocket Launch context.
+
+	- **/rocketlaunch/filter**
+	  <br />Home's rocket launch list filter feature. Has its own ViewModel, used by its *BottomSheetDialogFragment*.
+
+  ![Contexts](https://lh3.googleusercontent.com/6evl2u8OFwsmbEMC2Xs_x5kxLqlKKOvochUN2zbLv-AW3LKpp5E-UCNUyWj783QlmN4ZJIiL6pZk5t8WmD5qLmM7Y7D9D-ua1LQd7bBnF48oucIXcLz67chGyg5fIfTmLrnG7P5Yxw=w300)
+
+- **com/mindera/rocketscience/company**
+  - 
+	- **/data/local**
+		- /sharedprefs
+	- **/data/remote**
+	- **/domain**
+		- /model
+		- /usecase
+
+- **com/mindera/rocketscience/rocketlaunch**
+  - 
+	- **/data/local**
+		- /room
+		- /sharedprefs
+	- **/data/remote**
+		- /spacex/graphql
+		- /spacex/rest
+	- **/domain**
+		- /model
+		- /usecase
+
+
+# To-do
+
+- Unit test the data sources;
+- UI tests;
+- Segregate the dependency injection modules. They are contained in a single file, but should be distributed across the appropriate packages;
+- Create custom view in order to not repeat the same set of XML tags on every line of the rocket launch list item;
+- Show loading indicator at bottom of the list as well, when paginating.
+- Landscape mode.
+
+# References
+https://github.com/r-spacex/SpaceX-API/blob/master/docs/queries.md
+https://developer.android.com/kotlin/coroutines
+https://github.com/ReactiveX/RxJava
+https://developer.android.com/jetpack/androidx/releases/room
+https://developer.android.com/training/dependency-injection/hilt-android
+https://material.io/components/buttons/android#theming-buttons
+https://www.apollographql.com/docs/kotlin/
+https://graphql.org/learn/
+https://site.mockito.org/
+https://square.github.io/retrofit/
+https://stackedit.io/
+
+
+# Developer
+Matheus de Oliveira Castro (matheuscastro.dev {at} gmail {dot} com)

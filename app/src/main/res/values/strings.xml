@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Mindera App Challenge</string>
+    <string name="title_activity_main">SpaceX</string>
+
+    <string name="label_launch_mission_name">Mission:</string>
+    <string name="label_launch_date_time">Date (UTC):</string>
+    <string name="label_launch_rocket_info">Rocket:</string>
+    <string name="label_launch_days_since">Days since now:</string>
+    <string name="label_launch_days_from">Days from now:</string>
+    <string name="header_company">COMPANY</string>
+    <string name="header_launches">LAUNCHES</string>
+    <string name="content_company_info">%1$s was founded by %2$s in %3$d. It has now %4$d employees, %5$d launch sites, and is valued at %6$s</string>
+    <string name="content_rocket">%1$s / %2$s</string>
+    <string name="message_stale_data">Same old rocket launches, right? &#128517;\nPull down the list to refresh</string>
+    <string name="dialog_rocket_launch_article_link">READ ARTICLE</string>
+    <string name="dialog_rocket_launch_wikipedia_link">READ WIKIPEDIA</string>
+    <string name="dialog_rocket_launch_video_link">WATCH VIDEO</string>
+    <string name="action_filter">Filter</string>
+    <string name="dialog_filter_title">Filter By</string>
+    <string name="dialog_filter_secondary_title">Sort Order</string>
+    <string name="label_minimum_launch_year">Minimum Launch Year</string>
+    <string name="label_mission_status">Mission Status</string>
+    <string name="label_launch_date">Launch Date</string>
+    <string name="dialog_filter_save_button">APPLY</string>
+    <string name="option_mission_status_any">Any</string>
+    <string name="option_mission_status_success">Success</string>
+    <string name="option_mission_status_failure">Failure</string>
+    <string name="option_sort_order_descending">Descending</string>
+    <string name="option_sort_order_ascending">Ascending</string>
+    <string name="empty_section_rocket_launches">&#128640;\n\nNo rocket launches this time</string>
+
+    <plurals name="plural_content_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
+</resources>

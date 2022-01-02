@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_default">Oops!\nDon\'t know what to tell you… We screwed up &#128542;\nTry again in a moment</string>
+    <string name="error_server_down">Oops!\nThe server might be on fire or something &#128562;\nTry again in a moment</string>
+    <string name="error_no_internet_access">Oops!\nLooks like you are not connected to the internet &#129488;\nReconnect and try again</string>
+</resources>

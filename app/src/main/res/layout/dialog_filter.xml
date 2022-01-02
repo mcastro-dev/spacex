@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_filter_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".home.rocketlaunch.filter.FilterBottomSheet">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/list_item_spacing_half"
+        android:orientation="vertical"
+        tools:context=".home.rocketlaunch.filter.FilterBottomSheet">
+
+        <!--FILTER BY-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:paddingVertical="24dp"
+            android:text="@string/dialog_filter_title"
+            style="@style/BottomSheetTitle"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/label_minimum_launch_year"/>
+        <include
+            android:id="@+id/dialog_year_picker"
+            layout="@layout/dialog_year_picker"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/list_item_spacing"
+            android:text="@string/label_mission_status"/>
+        <include
+            android:id="@+id/dialog_mission_status"
+            layout="@layout/dialog_mission_status" />
+
+        <!--SORT ORDER-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="12dp"
+            android:padding="24dp"
+            android:text="@string/dialog_filter_secondary_title"
+            style="@style/BottomSheetTitle"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/label_launch_date"/>
+        <include
+            android:id="@+id/dialog_sort_order"
+            layout="@layout/dialog_sort_order" />
+
+        <!--APPLY-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/dialog_filter_save_button"
+            style="@style/SaveButton"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
