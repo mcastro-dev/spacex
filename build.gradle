@@ -5,6 +5,7 @@ buildscript {
         compileSdkVersion = 31
         targetSdkVersion = compileSdkVersion
         minSdkVersion = 26
+        buildToolsVersion = "30.0.1"
 
         kotlin_android_coroutines_version = "1.5.2"
         mockito_version = "4.0.0"

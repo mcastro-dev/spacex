@@ -14,6 +14,7 @@ android {
         applicationId "com.mindera.rocketscience"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.targetSdkVersion
+        buildToolsVersion rootProject.ext.buildToolsVersion
         versionCode 1
         versionName "1.0"
 
