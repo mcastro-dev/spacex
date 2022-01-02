@@ -7,6 +7,8 @@ buildscript {
         minSdkVersion = 26
         buildToolsVersion = "30.0.1"
 
+        gradle_version = "7.0.2"
+        kotlin_gradle_plugin_version = "1.5.31"
         kotlin_android_coroutines_version = "1.5.2"
         mockito_version = "4.0.0"
         kotlinx_coroutines_test_version = "1.6.0-RC2"
@@ -26,8 +28,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_gradle_plugin_version"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
         // NOTE: Do not place your application dependencies here; they belong
