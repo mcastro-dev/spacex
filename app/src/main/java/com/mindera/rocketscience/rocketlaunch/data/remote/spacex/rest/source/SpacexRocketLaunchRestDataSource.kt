@@ -7,8 +7,6 @@ import com.mindera.rocketscience.rocketlaunch.domain.model.Page
 import com.mindera.rocketscience.rocketlaunch.domain.model.RocketLaunch
 import javax.inject.Inject
 
-// matheus: Not being used. Replaced by the GraphQl implementation after finding that out on SpaceX documentation.
-//  Kept it here just because, well, it took a lot of work to implement both data sources :D
 class SpacexRocketLaunchRestDataSource @Inject constructor(
     private val restAPI: SpacexRocketLaunchRestAPI
 ) : IRemoteRocketLaunchDataSource {
